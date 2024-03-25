@@ -1,0 +1,35 @@
+{
+  "kind": [
+    {
+      "id": 1,
+      "name": "강아지",
+      "provider": "종류",
+      "image": "/images/DOG.jpg"
+      
+    },
+    {
+      "id": 2,
+      "name": "고양이",
+      "provider": "종류",
+      "image": "/images/cat.jpg"
+    },
+    {
+      "id": 3,
+      "name": "도마뱀",
+      "provider": "종류",
+      "image": "/images/lizard.png"
+    },
+    {
+      "id": 4,
+      "name": "거북이",
+      "provider": "종류",
+      "image": "/images/turtle.png"
+    },
+    {
+      "id": 5,
+      "name": "새",
+      "provider": "종류",
+      "image": "/images/bird.png"
+    }
+  ]
+}
