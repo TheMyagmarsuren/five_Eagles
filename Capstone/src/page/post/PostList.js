@@ -9,19 +9,20 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 const PostList = (props) => {
   const [dataList, setDataList] = useState([]);
-  const [inputs, setInputs] = useState({
-    no: 1,
-    title: "",
-    createDate: "2023-11-20",
-    readCount: 6,
-  });
+  // const [inputs, setInputs] = useState({
+  //   no: 1,
+  //   title: "",
+  //   createDate: "2023-11-20",
+  //   readCount: 6,
+  // });
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [input, setInput] = useState({
+    no: "11",
     name: "",
-    title: "",
     desc: "",
+    title: "",
     createDate: "2023-11-20",
     readCount: 6,
   });
@@ -29,22 +30,13 @@ const PostList = (props) => {
     setDataList(postList);
   }, []);
 
-  const handleChange = (event) => {
-    const number = dataList.length + 1;
-    setInput((values) => ({
-      ...values,
-      no: number,
-      name: event.target.value,
-      title: event.target.value,
-      desc: event.target.value,
-    }));
-    console.log(input);
-    dataList.push(input);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(input);
+    setInput((values) => ({
+      ...values,
+      no: dataList.length + 1,
+    }));
+    dataList.push(input);
   };
   const style = {
     position: "absolute",
@@ -95,19 +87,55 @@ const PostList = (props) => {
             <Box sx={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <Box sx={{ display: "flex", gap: "89.5px" }}>
                 Enter your title:
-                <input type="text" name="title" onChange={handleChange} />
+                <input
+                  type="text"
+                  name="title"
+                  onChange={(event) => {
+                    setInput((values) => ({
+                      ...values,
+                      title: event.target.value,
+                    }));
+                  }}
+                />
               </Box>
               <Box sx={{ display: "flex", gap: 10 }}>
                 Enter your name:
-                <input type="text" name="name" onChange={handleChange} />
+                <input
+                  type="text"
+                  name="name"
+                  onChange={(event) => {
+                    setInput((values) => ({
+                      ...values,
+                      name: event.target.value,
+                    }));
+                  }}
+                />
               </Box>
               <Box sx={{ display: "flex", gap: "43.5px" }}>
                 Enter your description:
-                <textarea type="text" name="desc" onChange={handleChange} />
+                <textarea
+                  type="text"
+                  name="desc"
+                  onChange={(event) => {
+                    setInput((values) => ({
+                      ...values,
+                      desc: event.target.value,
+                    }));
+                  }}
+                />
               </Box>
               <Box sx={{ display: "flex", gap: "75px" }}>
                 Enter your image:
-                <input type="file" name="image" onChange={handleChange} />
+                <input
+                  type="file"
+                  name="image"
+                  onChange={(event) => {
+                    setInput((values) => ({
+                      ...values,
+                      name: event.target.value,
+                    }));
+                  }}
+                />
               </Box>
               <input
                 onClick={handleSubmit}
